@@ -1,0 +1,223 @@
+/* Style général */
+body {
+	font-family: "Arial", sans-serif;
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+  }
+  
+  /* Conteneur principal */
+  .container {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+  }
+  
+  /* Bannière */
+  .banner {
+	background-color: #4caf50;
+	color: white;
+	padding: 20px;
+	font-size: 24px;
+	font-weight: bold;
+	border-radius: 10px;
+	margin-bottom: 50px;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Barre de recherche */
+  .search-container {
+	display: flex;
+	justify-content: center;
+	gap: 1px;
+	margin-bottom: 3dvh;
+  }
+  
+  .search-input {
+	padding: 10px;
+	width: 60%;
+	border: 2px solid #4caf50;
+	border-radius: 0px;
+	font-size: 16px;
+  }
+  
+  .search-button {
+	background-color: #4caf50;
+	color: rgb(255, 255, 255);
+	border: thick double;
+	padding: 10px 15px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .search-button:hover {
+	background-color: #45a049;
+  }
+  
+  /* Liste des aliments */
+  .food-list {
+	list-style: none;
+	padding: 0;
+  }
+  
+  .food-item {
+	display: flex;
+	align-items: center;
+	background: white;
+	margin: 10px 0;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .food-image {
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+	border-radius: 5px;
+  }
+  
+  .food-name {
+	font-size: 18px;
+	font-weight: bold;
+  }
+  
+  /* Message d'erreur */
+  .error-message {
+	color: red;
+	font-weight: bold;
+  }
+  
+  /* Aucun résultat */
+  .no-results {
+	font-size: 18px;
+	color: gray;
+  }
+  .auth-container {
+	max-width: 400px;
+	margin: 20px auto;
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+	text-align: center;
+  }
+  
+  .input-field {
+	width: 100%;
+	padding: 10px;
+	margin: 10px 0;
+	border: 2px solid #4caf50;
+	border-radius: 5px;
+	font-size: 16px;
+  }
+  
+  .auth-button, .logout-button {
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	padding: 10px 15px;
+	font-size: 16px;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 5px;
+  }
+  
+  .auth-button:hover, .logout-button:hover {
+	background-color: #45a049;
+  }
+  
+  .register {
+	background-color: #2196f3;
+  }
+  
+  .register:hover {
+	background-color: #1e87db;
+  }
+  
+  .error-message {
+	color: red;
+	font-weight: bold;
+  }
+.food-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 0px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+h2 {
+    display: block;
+	border-radius: 10px;
+	background-color: #49b377;
+	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+	padding: 10px;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+button.remove-button {
+    appearance: auto;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 2em;
+    padding-block: 1px;
+    padding-inline: 10px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+button.add-button {
+    appearance: auto;
+    text-rendering: auto;
+    color: buttontext;
+    letter-spacing: normal;
+    word-spacing: normal;
+    line-height: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: center;
+    align-items: flex-start;
+    cursor: default;
+    box-sizing: border-box;
+    background-color: buttonface;
+    margin: 2em;
+    padding-block: 8px;
+    padding-inline: 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+}
+
+div.Sinup.container {
+  font-family: "Arial";
+  line-height: 25px;
+  max-width: 200px;
+  margin: 0;
+  padding: 10px;
+}
