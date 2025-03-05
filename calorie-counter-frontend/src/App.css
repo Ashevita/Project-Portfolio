@@ -6,17 +6,17 @@ body {
 	padding: 0;
 	text-align: center;
   }
-  
+
   /* Conteneur principal */
   .container {
 	max-width: 600px;
 	margin: 0 auto;
 	padding: 20px;
   }
-  
+
   /* Bannière */
   .banner {
-	background-color: #4caf50;
+	background-color: #32b136;
 	color: white;
 	padding: 20px;
 	font-size: 24px;
@@ -25,7 +25,7 @@ body {
 	margin-bottom: 50px;
 	box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
   }
-  
+
   /* Barre de recherche */
   .search-container {
 	display: flex;
@@ -33,7 +33,7 @@ body {
 	gap: 1px;
 	margin-bottom: 3dvh;
   }
-  
+
   .search-input {
 	padding: 10px;
 	width: 60%;
@@ -41,7 +41,7 @@ body {
 	border-radius: 0px;
 	font-size: 16px;
   }
-  
+
   .search-button {
 	background-color: #4caf50;
 	color: rgb(255, 255, 255);
@@ -52,17 +52,17 @@ body {
 	border-radius: 5px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
   .search-button:hover {
 	background-color: #45a049;
   }
-  
+
   /* Liste des aliments */
   .food-list {
 	list-style: none;
 	padding: 0;
   }
-  
+
   .food-item {
 	display: flex;
 	align-items: center;
@@ -72,25 +72,25 @@ body {
 	border-radius: 5px;
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
   }
-  
+
   .food-image {
 	width: 50px;
 	height: 50px;
 	margin-right: 10px;
 	border-radius: 5px;
   }
-  
+
   .food-name {
 	font-size: 18px;
 	font-weight: bold;
   }
-  
+
   /* Message d'erreur */
   .error-message {
 	color: red;
 	font-weight: bold;
   }
-  
+
   /* Aucun résultat */
   .no-results {
 	font-size: 18px;
@@ -105,7 +105,7 @@ body {
 	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 	text-align: center;
   }
-  
+
   .input-field {
 	width: 100%;
 	padding: 10px;
@@ -114,7 +114,7 @@ body {
 	border-radius: 5px;
 	font-size: 16px;
   }
-  
+
   .auth-button, .logout-button {
 	background-color: #4caf50;
 	color: white;
@@ -125,19 +125,19 @@ body {
 	border-radius: 5px;
 	margin: 5px;
   }
-  
+
   .auth-button:hover, .logout-button:hover {
 	background-color: #45a049;
   }
-  
+
   .register {
 	background-color: #2196f3;
   }
-  
+
   .register:hover {
 	background-color: #1e87db;
   }
-  
+
   .error-message {
 	color: red;
 	font-weight: bold;
@@ -220,4 +220,11 @@ div.Sinup.container {
   max-width: 200px;
   margin: 0;
   padding: 10px;
+}
+input.search-input {
+  padding: 10px;
+  width: 89%;
+  border: 2px solid #4caf50;
+  border-radius: 5px;
+  font-size: 16px;
 }

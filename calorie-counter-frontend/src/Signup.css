@@ -1,0 +1,28 @@
+/* Signup.css */
+.auth-page {
+	max-width: 400px;
+	margin: 0 auto;
+	padding: 20px;
+  }
+
+  form {
+	display: flex;
+	flex-direction: column;
+  }
+
+  .form-row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 15px;
+  }
+
+  .form-row label {
+	width: 150px; /* Vous pouvez ajuster cette largeur */
+	margin-right: 10px;
+	text-align: right;
+  }
+
+  .form-row input {
+	flex: 1;
+	padding: 5px;
+  }
