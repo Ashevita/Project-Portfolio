@@ -1,7 +1,7 @@
 // src/components/Header.js
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Header.js";
+import "./Header.css";
 
 const Header = () => {
   return (
@@ -11,11 +11,12 @@ const Header = () => {
       </div>
       <div className="header__auth">
         <Link to="/signup">
-          <button className="header-button">Sign In</button>
+          <button className="signin-button">Sign In</button>
         </Link>
         <Link to="/signin">
-          <button className="header-button">Sign Up</button>
+          <button className="signup-button">Sign Up</button>
         </Link>
+
       </div>
     </header>
   );
