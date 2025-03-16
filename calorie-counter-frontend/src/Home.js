@@ -79,62 +79,77 @@ const Home = () => {
     };
     setFoodList(updatedFoodList);
   };
-// Ajoutez cette fonction dans votre composant Home, avant le return.
-const handleCreateMeal = () => {
-  if (foodList.length === 0) {
-    alert("Veuillez ajouter des aliments à votre repas d'abord.");
-    return;
-  }
-  const mealName = prompt("Entrez le nom de votre repas :");
-  if (!mealName) {
-    alert("Nom invalide.");
-    return;
-  }
 
-  // Calcul des totaux nutritionnels du repas
-  const totalCalories = foodList.reduce(
-    (acc, food) => acc + ((Number(food.nf_calories) || 0) * food.grams / 100),
-    0
-  );
-  const totalProtein = foodList.reduce(
-    (acc, food) => acc + ((Number(food.nf_protein) || 0) * food.grams / 100),
-    0
-  );
-  const totalCarbs = foodList.reduce(
-    (acc, food) => acc + ((Number(food.nf_total_carbohydrate) || 0) * food.grams / 100),
-    0
-  );
-  const totalFat = foodList.reduce(
-    (acc, food) => acc + ((Number(food.nf_total_fat) || 0) * food.grams / 100),
-    0
-  );
+  // Fonction pour créer un repas
+  const handleCreateMeal = () => {
+    if (foodList.length === 0) {
+      alert("Veuillez ajouter des aliments à votre repas d'abord.");
+      return;
+    }
+    const mealName = prompt("Entrez le nom de votre repas :");
+    if (!mealName) {
+      alert("Nom invalide.");
+      return;
+    }
 
-  // Créer un objet repas
-  const newMeal = {
-    id: Date.now(), // identifiant simple
-    name: mealName,
-    foods: foodList, // vous pouvez aussi permettre de sélectionner un sous-ensemble
-    totalCalories,
-    totalProtein,
-    totalCarbs,
-    totalFat,
+    // Calcul des totaux nutritionnels du repas
+    const totalCalories = foodList.reduce(
+      (acc, food) => acc + ((Number(food.nf_calories) || 0) * food.grams / 100),
+      0
+    );
+    const totalProtein = foodList.reduce(
+      (acc, food) => acc + ((Number(food.nf_protein) || 0) * food.grams / 100),
+      0
+    );
+    const totalCarbs = foodList.reduce(
+      (acc, food) => acc + ((Number(food.nf_total_carbohydrate) || 0) * food.grams / 100),
+      0
+    );
+    const totalFat = foodList.reduce(
+      (acc, food) => acc + ((Number(food.nf_total_fat) || 0) * food.grams / 100),
+      0
+    );
+
+    // Créer un objet repas
+    const newMeal = {
+      id: Date.now(), // identifiant simple
+      name: mealName,
+      foods: foodList,
+      totalCalories,
+      totalProtein,
+      totalCarbs,
+      totalFat,
+    };
+
+    // Récupérer les repas déjà créés depuis le localStorage
+    const storedMeals = JSON.parse(localStorage.getItem("customMeals") || "[]");
+    storedMeals.push(newMeal);
+    localStorage.setItem("customMeals", JSON.stringify(storedMeals));
+
+    alert("Repas créé avec succès !");
+    // Optionnel : vider la liste d'aliments après création
+    // setFoodList([]);
   };
 
-  // Récupérer les repas déjà créés depuis le localStorage (ou depuis un contexte global)
-  const storedMeals = JSON.parse(localStorage.getItem("customMeals") || "[]");
-  storedMeals.push(newMeal);
-  localStorage.setItem("customMeals", JSON.stringify(storedMeals));
+  const handleAddToShoppingList = (food) => {
+    // Récupérer la liste de courses existante depuis le localStorage
+    const currentShoppingList = JSON.parse(localStorage.getItem("shoppingList") || "[]");
+    console.log("Liste de course avant ajout :", currentShoppingList);
 
-  alert("Repas créé avec succès !");
+    // Ajouter l'aliment sans modifier le grammage
+    currentShoppingList.push(food);
 
-  // Optionnel : vider la liste d'aliments après création
-  // setFoodList([]);
-};
+    // Sauvegarder la nouvelle liste dans le localStorage
+    localStorage.setItem("shoppingList", JSON.stringify(currentShoppingList));
+    console.log("Liste de course après ajout :", JSON.parse(localStorage.getItem("shoppingList")));
+
+    alert("Aliment ajouté à votre liste de course !");
+  };
 
   return (
     <div className="container">
       <header className="banner">
-        <h1>🍏 Calorie Counter</h1>
+        <h2>Calorie Counter</h2>
       </header>
 
       <div className="search-container">
@@ -187,7 +202,6 @@ const handleCreateMeal = () => {
 
                 <button
                   onClick={() => {
-                    // Demander à l'utilisateur le nombre de grammes
                     const input = window.prompt("Entrez le nombre de grammes pour cet aliment :", "100");
                     const grams = Number(input);
                     if (!isNaN(grams) && grams > 0) {
@@ -200,6 +214,14 @@ const handleCreateMeal = () => {
                 >
                   Ajouter à la liste
                 </button>
+
+                <button
+                  onClick={() => handleAddToShoppingList(food)}
+                  className="add-shopping-button"
+                  style={{ marginLeft: "10px" }}
+                >
+                  Ajouter à ma liste de course
+                </button>
               </li>
             ))}
           </ul>
@@ -209,36 +231,35 @@ const handleCreateMeal = () => {
       </div>
 
       <div>
-  <h2>Aliments ajoutés</h2>
-  <ul>
-    {foodList.map((food, index) => (
-      <li key={index} className="food-item">
-        <div>
-          <strong>{food.food_name}</strong>
-          <br />
-          Calories (pour {food.grams} g) :{" "}
-          {((Number(food.nf_calories) || 0) * food.grams / 100).toFixed(2)} kcal
-        </div>
-        <button onClick={() => handleRemoveFood(food)} className="remove-button">
-          Supprimer
+        <h2>Aliments ajoutés</h2>
+        <ul>
+          {foodList.map((food, index) => (
+            <li key={index} className="food-item">
+              <div>
+                <strong>{food.food_name}</strong>
+                <br />
+                Calories (pour {food.grams} g) :{" "}
+                {((Number(food.nf_calories) || 0) * food.grams / 100).toFixed(2)} kcal
+              </div>
+              <button onClick={() => handleRemoveFood(food)} className="remove-button">
+                Supprimer
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p>
+          Total des calories :{" "}
+          {foodList.reduce(
+            (acc, food) =>
+              acc + ((Number(food.nf_calories) || 0) * food.grams / 100),
+            0
+          ).toFixed(2)}{" "}
+          kcal
+        </p>
+        <button onClick={handleCreateMeal} className="create-meal-button">
+          Créer un repas
         </button>
-      </li>
-    ))}
-  </ul>
-  <p>
-    Total des calories :{" "}
-    {foodList.reduce(
-      (acc, food) =>
-        acc + ((Number(food.nf_calories) || 0) * food.grams / 100),
-      0
-    ).toFixed(2)}{" "}
-    kcal
-  </p>
-  {/* Bouton pour créer un repas */}
-  <button onClick={handleCreateMeal} className="create-meal-button">
-    Créer un repas
-  </button>
-</div>
+      </div>
     </div>
   );
 };

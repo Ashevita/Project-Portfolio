@@ -1,0 +1,15 @@
+/* ShoppingList.css */
+.action-button {
+	margin-left: 10px;
+	background-color: rgb(255, 0, 0); /* même style que le bouton supprimer */
+	color: rgb(255, 255, 255);
+	border: none;
+	padding: 5px 10px;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+  }
+
+  .action-button:hover {
+	background-color: darkred;
+  }

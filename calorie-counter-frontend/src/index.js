@@ -1,14 +1,19 @@
 // src/index.js
-
 import React from 'react';
-import ReactDOM from 'react-dom/client';  // Importation de 'react-dom/client' pour React 18
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
+import axios from 'axios';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));  // Utilisation de createRoot
+// Configure Axios pour envoyer les cookies avec chaque requête
+axios.defaults.withCredentials = true;
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );

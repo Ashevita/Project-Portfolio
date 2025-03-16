@@ -10,13 +10,13 @@ const Navigation = () => {
         Calorie Counter
       </NavLink>
       <NavLink to="/recipes" className="nav-link">
-        Recettes
+      📖 Recettes
       </NavLink>
       <NavLink to="/calculator" className="nav-link">
         Calculateur
       </NavLink>
-      <NavLink to="/about" className="nav-link">
-        À propos
+      <NavLink to="/shoppinglist" className="nav-link">
+      📋 Liste de course
       </NavLink>
     </nav>
   );

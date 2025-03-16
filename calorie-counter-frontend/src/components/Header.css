@@ -1,41 +1,75 @@
-button {
-    appearance: auto;
-	float: right;
-    font-style: ;
-    font-variant-ligatures: ;
-    font-variant-caps: ;
-    font-variant-numeric: ;
-    font-variant-east-asian: ;
-    font-variant-alternates: ;
-    font-variant-position: ;
-    font-variant-emoji: ;
-    font-weight: ;
-    font-stretch: ;
-    font-size: ;
-    font-family: ;
-    font-optical-sizing: ;
-    font-size-adjust: ;
-    font-kerning: ;
-    font-feature-settings: ;
-    font-variation-settings: ;
-    text-rendering: auto;
-    color: buttontext;
-    letter-spacing: normal;
-    word-spacing: normal;
-    line-height: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    cursor: default;
-    box-sizing: border-box;
-    background-color: buttonface;
-    margin: 0em;
-    padding-block: 1px;
-    padding-inline: 6px;
-    border-width: 1px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
-}
+/* src/components/Header.css */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(135deg, #1f1f1f, #333333);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+
+  .header__logo {
+    display: flex;
+    align-items: center;
+  }
+
+  .header__logo-img {
+    height: 50px;
+    margin-right: 10px;
+  }
+
+  .header__title {
+    color: #fff;
+    font-size: 24px;
+    font-family: sans-serif;
+    margin: 0;
+  }
+
+  .header__nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .header__nav ul li {
+    margin: 0 15px;
+  }
+
+  .header__nav ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s;
+  }
+
+  .header__nav ul li a:hover {
+    color: #fff;
+  }
+
+  .header__auth a {
+    margin-left: -3em;
+    margin-right: 50px;
+  }
+
+  .header__btn {
+    background: none;
+    border: 1px solid #ccc;
+    color: #ccc;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .header__btn:hover {
+    background: #ccc;
+    color: #1f1f1f;
+  }
