@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Résultats pour "{{ query }}"{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>Résultats pour "{{ query }}"</h1>
+
+    {% if films %}
+    <h2>🎬 Films</h2>
+    <div class="film-grid">
+        {% for film in films %}
+        {% if film.poster_path %}
+        <a href="{% url 'film_detail' film.id %}" class="film-card">
+            <img src="https://image.tmdb.org/t/p/w300{{ film.poster_path }}" alt="{{ film.title }}">
+            <div class="film-card-title">{{ film.title }}</div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if acteurs %}
+    <h2>🎭 Acteurs</h2>
+    <div class="film-grid">
+{% for acteur in acteurs %}
+{% if acteur.profile_path %}
+<a href="{% url 'acteur_detail' acteur.id %}" class="film-card">
+    <img src="https://image.tmdb.org/t/p/w300{{ acteur.profile_path }}" alt="{{ acteur.name }}">
+    <div class="film-card-title">{{ acteur.name }}</div>
+</a>
+{% endif %}
+{% endfor %}
+
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

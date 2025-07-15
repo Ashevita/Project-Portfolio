@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Trouve un film{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/random.css' %}">{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>🎬 Trouver un film</h1>
+<div class="layout">
+    <form method="get">
+        <label>Genre :</label>
+        <select name="genre">
+            <option value="">-- Choisir --</option>
+            <option value="28">Action</option>
+            <option value="35">Comédie</option>
+            <option value="18">Drame</option>
+        </select>
+
+        <label>Note minimale :</label>
+        <input type="number" name="note" step="0.1" min="0" max="10">
+
+        <label>Année :</label>
+        <input type="number" name="annee">
+
+        <label>Acteur :</label>
+        <input type="text" name="acteur">
+				<label>Pays :</label>
+		<select name="pays">
+			<option value="">-- Choisir --</option>
+			<option value="US">États-Unis</option>
+			<option value="FR">France</option>
+			<option value="GB">Royaume-Uni</option>
+			<option value="CA">Canada</option>
+			<option value="DE">Allemagne</option>
+			<option value="IT">Italie</option>
+			<option value="ES">Espagne</option>
+			<option value="JP">Japon</option>
+			<option value="KR">Corée du Sud</option>
+			<option value="CN">Chine</option>
+			<option value="IN">Inde</option>
+			<option value="MX">Mexique</option>
+			<option value="BR">Brésil</option>
+			<option value="AU">Australie</option>
+			<option value="AR">Argentine</option>
+			<option value="SE">Suède</option>
+			<option value="DK">Danemark</option>
+			<option value="BE">Belgique</option>
+			<option value="RU">Russie</option>
+			<option value="IR">Iran</option>
+			<option value="TR">Turquie</option>
+			<option value="HK">Hong Kong</option>
+			<option value="TW">Taïwan</option>
+			<option value="EG">Égypte</option>
+			<option value="NG">Nigeria</option>
+		</select>
+
+        <button type="submit">🎲 Proposer un film</button>
+    </form>
+
+    {% if film %}
+        <div class="film-result">
+            <h2>{{ film.title }} ({{ film.release_date }})</h2>
+            {% if film.poster_path %}
+			<img src="https://image.tmdb.org/t/p/w500{{ film.poster_path }}" alt="{{ film.title }}">
+            {% endif %}
+            <p class="synopsis">{{ film.overview }}</p>
+        </div>
+    {% elif request.GET %}
+        <p class="film-result">Aucun film trouvé avec ces critères.</p>
+    {% endif %}
+	{% if trailer_url %}
+  <div class="trailer">
+    <h3>Bande-annonce</h3>
+    <iframe width="100%" height="315" src="{{ trailer_url }}" frameborder="0" allowfullscreen></iframe>
+  </div>
+
+{% endif %}
+</div>
+{% endblock %}

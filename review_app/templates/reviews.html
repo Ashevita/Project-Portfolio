@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Critique de film{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/random.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Laisser une critique</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <label for="movie_name">Film</label>
+        <input type="text" name="movie_name" id="movie_name" required placeholder="Nom du film">
+
+        <label for="rating">Note</label>
+        <select name="rating" id="rating" required>
+            <option value="">Choisir une note</option>
+            {% for i in "12345" %}
+                <option value="{{ i }}">{{ i }} ⭐</option>
+            {% endfor %}
+        </select>
+
+        <label for="comment">Commentaire</label>
+        <textarea name="comment" id="comment" rows="4" required placeholder="Votre avis..."></textarea>
+
+        <button type="submit">Publier la critique</button>
+    </form>
+
+    <h2>Critiques récentes</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>
+                <strong>{{ review.movie_name }}</strong> — {{ review.rating }} ⭐
+                <p>{{ review.comment }}</p>
+                <span style="font-size:0.9em;color:var(--accent);">par {{ review.user.username }} le {{ review.created_at|date:"d/m/Y H:i" }}</span>
+            </li>
+        {% empty %}
+            <li>Aucune critique pour le moment.</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Profil{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/random.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Profil de {{ profil.pseudo }}</h1>
+        <p>Date d'inscription : {{ profil.date_inscription }}</p>
+        <p>Films préférés : {{ profil.favourite_movies }}</p>
+        <p>Biographie : {{ profil.bio }}</p>
+        <h2>Mes avis</h2>
+        <ul>
+            {% for review in profil.review_set.all %}
+                <li>
+                    <strong>{{ review.movie_name }}</strong> — {{ review.rating }} étoiles
+                    <p>{{ review.comment }}</p>
+                </li>
+            {% empty %}
+                <li>Aucun avis trouvé.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+{% endblock %}

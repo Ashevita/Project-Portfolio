@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}{{ acteur.name }} - Filmographie{% endblock %}
+{% block content %}
+<div class="container">
+    <h1>🎭 {{ acteur.name }}</h1>
+    {% if acteur.profile_path %}
+    <img src="https://image.tmdb.org/t/p/w300{{ acteur.profile_path }}" alt="{{ acteur.name }}" style="border-radius: 12px;">
+    {% endif %}
+
+    <h2>Filmographie</h2>
+    <div class="film-grid">
+        {% for film in films %}
+        {% if film.poster_path %}
+        <a href="{% url 'film_detail' film.id %}" class="film-card">
+            <img src="https://image.tmdb.org/t/p/w300{{ film.poster_path }}" alt="{{ film.title }}">
+            <div class="film-card-title">{{ film.title }}</div>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

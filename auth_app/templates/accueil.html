@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Accueil - GagneTonTemps{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/accueil.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<form class="search-section" method="get" action="{% url 'recherche' %}">
+    <input type="text" name="q" placeholder="Rechercher un film ou un acteur...">
+    <button type="submit">Rechercher</button>
+</form>
+
+<section class="film-grid">
+    {% for film in films %}
+    {% if film.poster_path %}
+    <div class="film-card">
+        <img src="https://image.tmdb.org/t/p/w300{{ film.poster_path }}" alt="{{ film.title }}">
+        <div class="film-card-title">{{ film.title }}</div>
+    </div>
+    {% endif %}
+    {% endfor %}
+</section>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import 'header.css';
+
+:root {
+    --primary: #ffb400;
+    --primary-dark: #e09e00;
+    --secondary: #23243a;
+    --accent: #f72585;
+    --background: #18192b;
+    --surface: #23243a;
+    --white: #fff;
+    --text: #f8f9fa;
+    --shadow: 0 2px 12px rgba(20,20,40,0.18);
+    --radius: 14px;
+}
+
+.profil-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.profil-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profil-form .form-group {
+  margin-bottom: 20px;
+}
+
+.profil-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #444;
+}
+
+.profil-form input[type="text"],
+.profil-form input[type="email"],
+.profil-form input[type="date"],
+.profil-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.profil-form input[disabled] {
+  background-color: #eee;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.profil-form .error {
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.profil-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profil-form button:hover {
+  background-color: #005fa3;
+}

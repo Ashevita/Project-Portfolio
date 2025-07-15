@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import 'header.css';
+
+:root {
+    --primary: #ffb400;
+    --primary-dark: #e09e00;
+    --secondary: #23243a;
+    --accent: #f72585;
+    --background: #18192b;
+    --surface: #23243a;
+    --white: #fff;
+    --text: #f8f9fa;
+    --shadow: 0 2px 12px rgba(20,20,40,0.18);
+    --radius: 14px;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 4rem auto 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0.8rem 1rem;
+    border: none;
+    font-size: 1rem;
+    background-color: #1e1f31;
+    color: var(--text);
+}
+
+.search-bar input::placeholder {
+    color: #aaa;
+}
+
+.search-bar button {
+    background-color: var(--primary);
+    color: var(--secondary);
+    padding: 0 1.2rem;
+    border: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: var(--primary-dark);
+}
+
+.film-grid {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.film-card {
+    background-color: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    text-decoration: none;
+}
+
+.film-card:hover {
+    transform: scale(1.03);
+}
+
+.film-card img {
+    width: 100%;
+    display: block;
+}
+
+.film-card-title {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+}
